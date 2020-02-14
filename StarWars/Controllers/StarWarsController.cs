@@ -4,6 +4,8 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using StarWars.Application;
+using StarWars.Contracts;
 
 namespace StarWars.Controllers
 {
@@ -11,36 +13,41 @@ namespace StarWars.Controllers
     [ApiController]
     public class StarWarsController : ControllerBase
     {
-        // GET: api/StarWars
+        private readonly StarWarsCharacterService _characterService;
+
+        public StarWarsController(StarWarsCharacterService characterService)
+        {
+            _characterService = characterService;
+        }
+
         [HttpGet]
-        public IEnumerable<string> Get()
+        public IEnumerable<StarWarsCharacterDto> Get()
         {
-            return new string[] { "value1", "value2" };
+            return _characterService.GetAllCharacters();
         }
 
-        // GET: api/StarWars/5
         [HttpGet("{id}", Name = "Get")]
-        public string Get(int id)
+        public StarWarsCharacterDto Get(string name)
         {
-            return "value";
+            return _characterService.GetCharacter(name);
         }
 
-        // POST: api/StarWars
         [HttpPost]
-        public void Post([FromBody] string value)
+        public void Post([FromBody] StarWarsCharacterDto characterDto)
         {
+            _characterService.CreateCharacter(characterDto);
         }
 
-        // PUT: api/StarWars/5
         [HttpPut("{id}")]
-        public void Put(int id, [FromBody] string value)
+        public void Put(string name, [FromBody] StarWarsCharacterDto characterDto)
         {
+            _characterService.UpdateCharacter(name, characterDto);
         }
 
-        // DELETE: api/ApiWithActions/5
         [HttpDelete("{id}")]
-        public void Delete(int id)
+        public void Delete(string name)
         {
+            _characterService.DeleteCharacter(name);
         }
     }
 }

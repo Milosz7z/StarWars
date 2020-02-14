@@ -11,6 +11,10 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
 using Microsoft.OpenApi.Models;
+using StarWars.Application;
+using StarWars.Domain.Repositories;
+using StarWars.Persistence;
+using Microsoft.EntityFrameworkCore;
 
 namespace StarWars
 {
@@ -26,6 +30,12 @@ namespace StarWars
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+
+            services.AddDbContext<StarWarsContext>(options => options.UseInMemoryDatabase("InMemory"));
+            services.AddScoped<IUnitOfWork, UnitOfWork>();
+            services.AddTransient<IStarWarsCharacterRepository, StarWarsCharacterRepository>();
+            services.AddTransient<CharacterParser>();
+            services.AddTransient<StarWarsCharacterService>();
             services.AddControllers();
 
             services.AddSwaggerGen(c =>
