@@ -21,12 +21,12 @@ namespace StarWars.Controllers
         }
 
         [HttpGet]
-        public IEnumerable<StarWarsCharacterDto> Get()
+        public IEnumerable<StarWarsCharacterDto> Get([FromQuery] PaginationParameters paginationParameters)
         {
-            return _characterService.GetAllCharacters();
+            return _characterService.GetAllCharacters(paginationParameters);
         }
 
-        [HttpGet("{id}", Name = "Get")]
+        [HttpGet("{name}", Name = "Get")]
         public StarWarsCharacterDto Get(string name)
         {
             return _characterService.GetCharacter(name);
@@ -38,13 +38,13 @@ namespace StarWars.Controllers
             _characterService.CreateCharacter(characterDto);
         }
 
-        [HttpPut("{id}")]
+        [HttpPut("{name}")]
         public void Put(string name, [FromBody] StarWarsCharacterDto characterDto)
         {
             _characterService.UpdateCharacter(name, characterDto);
         }
 
-        [HttpDelete("{id}")]
+        [HttpDelete("{name}")]
         public void Delete(string name)
         {
             _characterService.DeleteCharacter(name);

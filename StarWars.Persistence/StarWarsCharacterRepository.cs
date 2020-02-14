@@ -2,6 +2,8 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using Microsoft.EntityFrameworkCore;
+using StarWars.Contracts;
 using StarWars.Domain;
 using StarWars.Domain.Repositories;
 
@@ -29,12 +31,16 @@ namespace StarWars.Persistence
 
         public StarWarsCharacterEntity Get(string name)
         {
-            return _context.StarWarsCharacters.SingleOrDefault(x => x.Name == name);
+            return _context.StarWarsCharacters.Include(x => x.Episodes).Include(x => x.Friends).SingleOrDefault(x => x.Name == name);
         }
 
-        public IEnumerable<StarWarsCharacterEntity> GetAll()
+        public IEnumerable<StarWarsCharacterEntity> GetAll(PaginationParameters paginationParameters)
         {
-            return _context.StarWarsCharacters;
+            return _context.StarWarsCharacters.
+                Include(x => x.Episodes).
+                Include(x => x.Friends).
+                Skip((paginationParameters.PageNumber - 1) * paginationParameters.PageSize).
+                Take(paginationParameters.PageSize);
         }
 
         public void Update(StarWarsCharacterEntity starWarsCharacterEntity, string name)

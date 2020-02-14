@@ -22,9 +22,9 @@ namespace StarWars.Application
             _unitOfWork = unitOfWork;
         }
 
-        public IEnumerable<StarWarsCharacterDto> GetAllCharacters()
+        public IEnumerable<StarWarsCharacterDto> GetAllCharacters(PaginationParameters paginationParameters)
         {
-            var characterEntities = _starWarsCharacterRepository.GetAll();
+            var characterEntities = _starWarsCharacterRepository.GetAll(paginationParameters);
             return characterEntities.Select(x => _characterParser.CharacterEntityToDto(x));
         }
 

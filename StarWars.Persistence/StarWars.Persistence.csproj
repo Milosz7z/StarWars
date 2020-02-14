@@ -9,6 +9,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\StarWars.Contracts\StarWars.Contracts.csproj" />
     <ProjectReference Include="..\StarWars.Domain\StarWars.Domain.csproj" />
   </ItemGroup>
 
