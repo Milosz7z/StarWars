@@ -5,13 +5,15 @@ VisualStudioVersion = 16.0.29728.190
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "StarWars", "StarWars\StarWars.csproj", "{CF421C11-5172-45FD-A370-5F22DACBB320}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StarWars.Application", "StarWars.Application\StarWars.Application.csproj", "{3BE0794B-9370-4C55-9610-0B53B8475DCF}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "StarWars.Application", "StarWars.Application\StarWars.Application.csproj", "{3BE0794B-9370-4C55-9610-0B53B8475DCF}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StarWars.Contracts", "StarWars.Contracts\StarWars.Contracts.csproj", "{2D2714ED-289A-4C7C-AF87-BABFF334B0CF}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "StarWars.Contracts", "StarWars.Contracts\StarWars.Contracts.csproj", "{2D2714ED-289A-4C7C-AF87-BABFF334B0CF}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StarWars.Domain", "StarWars.Domain\StarWars.Domain.csproj", "{F81C97E0-9E73-4E28-89E0-1D0449BC3B48}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "StarWars.Domain", "StarWars.Domain\StarWars.Domain.csproj", "{F81C97E0-9E73-4E28-89E0-1D0449BC3B48}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StarWars.Persistence", "StarWars.Persistence\StarWars.Persistence.csproj", "{AA454AF1-7C4E-4D1F-8E0C-517876325C62}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "StarWars.Persistence", "StarWars.Persistence\StarWars.Persistence.csproj", "{AA454AF1-7C4E-4D1F-8E0C-517876325C62}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StarWars.Tests", "StarWars.Tests\StarWars.Tests.csproj", "{BCD325D9-C308-470E-B799-1D0FEF7A168A}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -39,6 +41,10 @@ Global
 		{AA454AF1-7C4E-4D1F-8E0C-517876325C62}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{AA454AF1-7C4E-4D1F-8E0C-517876325C62}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{AA454AF1-7C4E-4D1F-8E0C-517876325C62}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BCD325D9-C308-470E-B799-1D0FEF7A168A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BCD325D9-C308-470E-B799-1D0FEF7A168A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BCD325D9-C308-470E-B799-1D0FEF7A168A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BCD325D9-C308-470E-B799-1D0FEF7A168A}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
